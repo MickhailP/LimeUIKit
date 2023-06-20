@@ -7,23 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7A34E162A41E7CF00360280 /* ErrorMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A34E152A41E7CF00360280 /* ErrorMessages.swift */; };
 		D7EADE4529B67E6B0090D421 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EADE4429B67E6B0090D421 /* AppDelegate.swift */; };
 		D7EADE4729B67E6B0090D421 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EADE4629B67E6B0090D421 /* SceneDelegate.swift */; };
-		D7EADE4929B67E6B0090D421 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EADE4829B67E6B0090D421 /* ViewController.swift */; };
 		D7EADE4C29B67E6B0090D421 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7EADE4A29B67E6B0090D421 /* Main.storyboard */; };
 		D7EADE4E29B67E710090D421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7EADE4D29B67E710090D421 /* Assets.xcassets */; };
 		D7EADE5129B67E710090D421 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7EADE4F29B67E710090D421 /* LaunchScreen.storyboard */; };
+		D7EADE6129B67F5A0090D421 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EADE5C29B67F590090D421 /* Endpoints.swift */; };
+		D7EADE6229B67F5A0090D421 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EADE5D29B67F590090D421 /* Networking.swift */; };
+		D7EADE6329B67F5A0090D421 /* NetworkingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EADE5E29B67F590090D421 /* NetworkingProtocol.swift */; };
+		D7EADE7229B67FE80090D421 /* ChannelsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EADE7129B67FE80090D421 /* ChannelsModel.swift */; };
+		D7EADE7629B6806E0090D421 /* ChannelsCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EADE7529B6806E0090D421 /* ChannelsCategories.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D7A34E152A41E7CF00360280 /* ErrorMessages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessages.swift; sourceTree = "<group>"; };
 		D7EADE4129B67E6B0090D421 /* LimeUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LimeUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7EADE4429B67E6B0090D421 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7EADE4629B67E6B0090D421 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D7EADE4829B67E6B0090D421 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D7EADE4B29B67E6B0090D421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D7EADE4D29B67E710090D421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7EADE5029B67E710090D421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7EADE5229B67E710090D421 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D7EADE5C29B67F590090D421 /* Endpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		D7EADE5D29B67F590090D421 /* Networking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		D7EADE5E29B67F590090D421 /* NetworkingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingProtocol.swift; sourceTree = "<group>"; };
+		D7EADE7129B67FE80090D421 /* ChannelsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelsModel.swift; sourceTree = "<group>"; };
+		D7EADE7529B6806E0090D421 /* ChannelsCategories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelsCategories.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +47,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D7A34E112A41D96E00360280 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D7EADE5829B67F590090D421 /* Networking */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D7A34E122A41E78D00360280 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D7A34E152A41E7CF00360280 /* ErrorMessages.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		D7AEBC1C29BDFEA20008373C /* ChannelsView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ChannelsView;
+			sourceTree = "<group>";
+		};
 		D7EADE3829B67E6B0090D421 = {
 			isa = PBXGroup;
 			children = (
@@ -58,13 +91,35 @@
 			children = (
 				D7EADE4429B67E6B0090D421 /* AppDelegate.swift */,
 				D7EADE4629B67E6B0090D421 /* SceneDelegate.swift */,
-				D7EADE4829B67E6B0090D421 /* ViewController.swift */,
 				D7EADE4A29B67E6B0090D421 /* Main.storyboard */,
+				D7AEBC1C29BDFEA20008373C /* ChannelsView */,
+				D7EADE7029B67FE80090D421 /* Model */,
+				D7A34E112A41D96E00360280 /* Services */,
+				D7A34E122A41E78D00360280 /* Utilities */,
 				D7EADE4D29B67E710090D421 /* Assets.xcassets */,
 				D7EADE4F29B67E710090D421 /* LaunchScreen.storyboard */,
 				D7EADE5229B67E710090D421 /* Info.plist */,
 			);
 			path = LimeUIKit;
+			sourceTree = "<group>";
+		};
+		D7EADE5829B67F590090D421 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D7EADE5D29B67F590090D421 /* Networking.swift */,
+				D7EADE5E29B67F590090D421 /* NetworkingProtocol.swift */,
+				D7EADE5C29B67F590090D421 /* Endpoints.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		D7EADE7029B67FE80090D421 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D7EADE7129B67FE80090D421 /* ChannelsModel.swift */,
+				D7EADE7529B6806E0090D421 /* ChannelsCategories.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +193,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7EADE4929B67E6B0090D421 /* ViewController.swift in Sources */,
 				D7EADE4529B67E6B0090D421 /* AppDelegate.swift in Sources */,
+				D7EADE7629B6806E0090D421 /* ChannelsCategories.swift in Sources */,
+				D7EADE6129B67F5A0090D421 /* Endpoints.swift in Sources */,
+				D7EADE7229B67FE80090D421 /* ChannelsModel.swift in Sources */,
+				D7EADE6329B67F5A0090D421 /* NetworkingProtocol.swift in Sources */,
 				D7EADE4729B67E6B0090D421 /* SceneDelegate.swift in Sources */,
+				D7A34E162A41E7CF00360280 /* ErrorMessages.swift in Sources */,
+				D7EADE6229B67F5A0090D421 /* Networking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +276,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +330,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -293,8 +353,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +363,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = MichailDev.LimeUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -321,8 +385,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +395,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = MichailDev.LimeUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
