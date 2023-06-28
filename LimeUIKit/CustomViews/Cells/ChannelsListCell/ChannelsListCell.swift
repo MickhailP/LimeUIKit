@@ -11,10 +11,9 @@ import AVKit
 
 //MARK: - CollectionViewCell delegate
 protocol CollectionViewCellDelegate: AnyObject {
-	 
-	 func favoriteButtonPressed()
-	 func showPlayer(for channel: Channel)
 
+	func favoriteButtonPressed()
+	func showPlayer(for channel: Channel)
 	func didFinishedWith(error: Error)
 }
 
@@ -22,20 +21,19 @@ protocol CollectionViewCellDelegate: AnyObject {
 //MARK: - ChannelsListCell
 final class ChannelsListCell: UICollectionViewCell {
 
-	 @IBOutlet var channelsTableView: UITableView!
-	 
+	@IBOutlet var channelsTableView: UITableView!
 
-	 var channels: [Channel] = []
-	 var favouritesService: FavouritesChannelsDataService?
+	var channels: [Channel] = []
+	var favouritesService: FavouritesChannelsDataService?
 
-	 weak var delegate: CollectionViewCellDelegate?
+	weak var delegate: CollectionViewCellDelegate?
 
 
-	 override func awakeFromNib() {
-		  super.awakeFromNib()
+	override func awakeFromNib() {
+		super.awakeFromNib()
 
-		  configureTableView()
-	 }
+		configureTableView()
+	}
 }
 
 
@@ -61,61 +59,61 @@ extension ChannelsListCell {
 //MARK: - UITableViewDataSource
 extension ChannelsListCell: UITableViewDataSource {
 
-	 func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		  channels.count
-	 }
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		channels.count
+	}
 
 
-	 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-		  let cell = tableView.dequeueReusableCell(withIdentifier: CellsID.channelCell) as! ChannelTableViewCell
-		  let channel = channels[indexPath.row]
-		  cell.delegate = self
+		let cell = tableView.dequeueReusableCell(withIdentifier: CellsID.channelCell) as! ChannelTableViewCell
 
-		  let isFavourite = favouritesService?.contains(channel.id)
+		let channel = channels[indexPath.row]
+		let isFavourite = favouritesService?.contains(channel.id)
 
-		  cell.setCell(with: channel, isFavorite: isFavourite)
-		  return cell
-	 }
+		cell.delegate = self
+		cell.setCell(with: channel, isFavorite: isFavourite)
+		return cell
+	}
 }
 
 
 //MARK: - UITableViewDelegate
 extension ChannelsListCell: UITableViewDelegate {
 
-	 func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-		  let channel = channels[indexPath.row]
-		  delegate?.showPlayer(for: channel)
-	 }
+		let channel = channels[indexPath.row]
+		delegate?.showPlayer(for: channel)
+	}
 }
 
 
 //MARK: - ChannelCellDelegate
 extension ChannelsListCell: ChannelCellDelegate {
 
-	 func favoriteButtonPressed(for channel: Channel) {
+	func favoriteButtonPressed(for channel: Channel) {
 
-		  guard let isFavourite = favouritesService?.contains(channel.id) else {
-				delegate?.didFinishedWith(error: ErrorMessage.unableFetchFromDataBase)
-				return
-		  }
+		guard let isFavourite = favouritesService?.contains(channel.id) else {
+			delegate?.didFinishedWith(error: ErrorMessage.unableFetchFromDataBase)
+			return
+		}
 
-		  do {
-				if isFavourite {
-					 try favouritesService?.deleteFromFavourites(channel.id)
-					 print("deleted")
-				} else {
-					 try favouritesService?.addToFavourites(channel.id)
-					 print("added")
-				}
-
-				channelsTableView.reloadData()
-
-				delegate?.favoriteButtonPressed()
-
-		  } catch let error {
-				delegate?.didFinishedWith(error: error)
+		do {
+			if isFavourite {
+				try favouritesService?.deleteFromFavourites(channel.id)
+				print("deleted")
+			} else {
+				try favouritesService?.addToFavourites(channel.id)
+				print("added")
 			}
-	 }
+
+			channelsTableView.reloadData()
+
+			delegate?.favoriteButtonPressed()
+
+		} catch let error {
+			delegate?.didFinishedWith(error: error)
+		}
+	}
 }

@@ -49,7 +49,6 @@ struct ForeignPlayer: Codable {
 
 }
 
-
 // MARK: Equatable
 extension Channel: Equatable {
     static func == (lhs: Channel, rhs: Channel) -> Bool {

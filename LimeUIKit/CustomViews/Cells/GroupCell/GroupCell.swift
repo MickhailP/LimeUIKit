@@ -9,28 +9,28 @@ import UIKit
 
 final class GroupCell: UICollectionViewCell {
 
-	 @IBOutlet var categoryLabel: UILabel!
-	 @IBOutlet var selectionBar: UIView!
+	@IBOutlet var categoryLabel: UILabel!
+	@IBOutlet var selectionBar: UIView!
 
 
-	 override func awakeFromNib() {
-		  super.awakeFromNib()
+	override func awakeFromNib() {
+		super.awakeFromNib()
 
-	 }
+	}
 
-	 func setupCell(category: Category, isSelected: Bool) {
+	func setupCell(category: Category, isSelected: Bool) {
 
-		  categoryLabel.text = category.rawValue
+		categoryLabel.text = category.rawValue
 
-		  UIView.animate(withDuration: 1) {
-				if isSelected {
-					 self.selectionBar.isHidden = false
-					 self.categoryLabel.textColor = .white
-				} else {
-					 self.selectionBar.isHidden = true
-					 self.categoryLabel.textColor = .lightGray
+		UIView.animate(withDuration: 1) {
+			if isSelected {
+				self.selectionBar.isHidden = false
+				self.categoryLabel.textColor = .white
+			} else {
+				self.selectionBar.isHidden = true
+				self.categoryLabel.textColor = .lightGray
 
-				}
-		  }
-	 }
+			}
+		}
+	}
 }

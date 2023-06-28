@@ -10,63 +10,63 @@ import Foundation
 
 //MARK: - UserDefaults Keys
 extension UserDefaults {
-	 public enum SaveKeys: String {
-		  case favouritesChannels = "users_favourites_channels"
-	 }
+	public enum SaveKeys: String {
+		case favouritesChannels = "users_favourites_channels"
+	}
 }
 
 
 //MARK: - DataService
 final class FavouritesChannelsDataService {
-    
-	 var favouritesChannels: Set<Int> = []
 
-	 private let userDefaults: UserDefaults
-    private let saveKey = UserDefaults.SaveKeys.favouritesChannels
+	var favouritesChannels: Set<Int> = []
 
-
-    init(userDefaultsContainer: UserDefaults = UserDefaults.standard) {
-		  self.userDefaults = userDefaultsContainer
-    }
+	private let userDefaults: UserDefaults
+	private let saveKey = UserDefaults.SaveKeys.favouritesChannels
 
 
-    func getAlObjects() throws {
+	init(userDefaultsContainer: UserDefaults = UserDefaults.standard) {
+		self.userDefaults = userDefaultsContainer
+	}
 
-		  guard let data = userDefaults.data(forKey: saveKey.rawValue) else {
-				throw ErrorMessage.unableFetchFromDataBase
-		  }
 
-		  do {
-				let decodedData = try JSONDecoder().decode(Set<Int>.self, from: data)
-				favouritesChannels = decodedData
-		  } catch  {
-				throw error
-		  }
-	 }
+	func getAlObjects() throws {
 
-	 func contains(_ channelID: Int) -> Bool {
-        favouritesChannels.contains(channelID)
-    }
-    
-    func addToFavourites(_ channelID: Int) throws {
-        favouritesChannels.insert(channelID)
-        try save()
-    }
-    
-    func deleteFromFavourites(_ channelID: Int) throws {
-        favouritesChannels.remove(channelID)
-        try save()
-	 }
+		guard let data = userDefaults.data(forKey: saveKey.rawValue) else {
+			throw ErrorMessage.unableFetchFromDataBase
+		}
 
-	 private func save() throws  {
-		  do {
-				let encoded = try JSONEncoder().encode(favouritesChannels)
-				UserDefaults.standard.set(encoded, forKey: saveKey.rawValue)
+		do {
+			let decodedData = try JSONDecoder().decode(Set<Int>.self, from: data)
+			favouritesChannels = decodedData
+		} catch  {
+			throw error
+		}
+	}
 
-		  } catch {
-				throw error
-		  }
-	 }
+	func contains(_ channelID: Int) -> Bool {
+		favouritesChannels.contains(channelID)
+	}
+
+	func addToFavourites(_ channelID: Int) throws {
+		favouritesChannels.insert(channelID)
+		try save()
+	}
+
+	func deleteFromFavourites(_ channelID: Int) throws {
+		favouritesChannels.remove(channelID)
+		try save()
+	}
+
+	private func save() throws  {
+		do {
+			let encoded = try JSONEncoder().encode(favouritesChannels)
+			UserDefaults.standard.set(encoded, forKey: saveKey.rawValue)
+
+		} catch {
+			throw error
+		}
+	}
 }
 
 

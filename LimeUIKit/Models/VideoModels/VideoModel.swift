@@ -17,7 +17,7 @@ struct Video {
 // MARK: Stream
 struct Stream {
     let resolution: Resolution
-    let streamURL: URL
+    let streamURL: URL?
 }
 
 

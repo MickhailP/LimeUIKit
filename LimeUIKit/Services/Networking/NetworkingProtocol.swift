@@ -11,28 +11,28 @@ import UIKit
 
 protocol NetworkingProtocol: AnyObject {
 
-	 func downloadDataResult(from url: URL, completionHandler: @escaping (Result<Data, Error>) -> Void)
+	func downloadDataResult(from url: URL, completionHandler: @escaping (Result<Data, Error>) -> Void)
 	func downloadImage(from url: String, completion: @escaping (UIImage?) -> Void)
 }
 
 
 extension NetworkingProtocol {
 
-	 /// Check if URLResponse have good status code, if it's not, it will throw an error
-	 /// - Parameter response: URLResponse from dataTask
-	 func handleResponse(_ response: URLResponse?) throws {
+	/// Check if URLResponse have good status code, if it's not, it will throw an error
+	/// - Parameter response: URLResponse from dataTask
+	func handleResponse(_ response: URLResponse?) throws {
 
-		  guard let response = response as? HTTPURLResponse else {
-				throw URLError(.cannotParseResponse)
-		  }
+		guard let response = response as? HTTPURLResponse else {
+			throw URLError(.cannotParseResponse)
+		}
 
-		  let statusCode = response.statusCode
+		let statusCode = response.statusCode
 
-		  print(statusCode)
-		  if statusCode >= 200 && statusCode <= 300 {
-				return
-		  } else {
-				throw URLError(.badServerResponse)
-		  }
-	 }
+		print(statusCode)
+		if statusCode >= 200 && statusCode <= 300 {
+			return
+		} else {
+			throw URLError(.badServerResponse)
+		}
+	}
 }

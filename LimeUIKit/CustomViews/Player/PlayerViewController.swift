@@ -38,6 +38,7 @@ final class PlayerViewController: UIViewController {
 
 	override func viewDidLayoutSubviews() {
 		super.viewDidLayoutSubviews()
+
 		playerLayer.masksToBounds = true
 		playerLayer?.frame = videoView.bounds
 	}
@@ -58,7 +59,7 @@ final class PlayerViewController: UIViewController {
 //MARK: - View Setup
 extension PlayerViewController {
 
-	func setUp(with channel: Channel ) {
+	func setUp(with channel: Channel) {
 		self.channel = channel
 	}
 
@@ -66,8 +67,9 @@ extension PlayerViewController {
 	private func setUpPlayer() {
 
 		guard let channel,
-					let url = URL(string: channel.url)
+			  let url = URL(string: channel.url)
 		else {
+			displayAlert(with: "Error", message: "URL is missing")
 			return
 		}
 
@@ -127,9 +129,9 @@ extension PlayerViewController {
 		])
 	}
 
-		@objc func backPressed() {
-			dismiss(animated: true, completion: nil)
-		}
+	@objc func backPressed() {
+		dismiss(animated: true, completion: nil)
+	}
 }
 
 
@@ -138,14 +140,13 @@ extension PlayerViewController {
 
 	private func getVideo() {
 
-		guard let channel	else {
+		guard let channel else {
 			return
 		}
 
 		videoManager.decodePlaylist(from: channel.url) { [weak self] streams, error in
 
 			if let streams {
-
 				self?.video = Video(streams: streams)
 			}
 
@@ -171,7 +172,12 @@ extension PlayerViewController {
 			currentTime = .zero
 		}
 
-		player.replaceCurrentItem(with: AVPlayerItem(url: stream.streamURL))
+		guard let url = stream.streamURL else {
+			displayAlert(with: "Error", message: ErrorMessage.badURl.rawValue)
+			return
+		}
+
+		player.replaceCurrentItem(with: AVPlayerItem(url: url))
 		player.seek(to: currentTime, toleranceBefore: .zero, toleranceAfter: .zero)
 		player.play()
 		print("Resolution changed")

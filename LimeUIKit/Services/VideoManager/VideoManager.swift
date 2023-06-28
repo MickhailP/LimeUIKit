@@ -19,7 +19,6 @@ protocol VideoManagerProtocol {
 
 final class VideoManager {
 
-
 	func decodePlaylist(from urlString: String, completionHandler: @escaping ([Stream]?, Error?) -> Void)  {
 
 		guard let url = URL(string: urlString) else {
@@ -59,11 +58,8 @@ final class VideoManager {
 
 		playlist.compactMap { item in
 
-			guard let newURL = URL(string: item.uri, relativeTo: url) else {
-				fatalError("Missing URL")
-			}
+			let newURL = URL(string: item.uri, relativeTo: url)
 
-			// Create a Stream based on the height of the video
 			switch item.resolution {
 				case 240:
 					return Stream(resolution: .p240, streamURL: newURL )

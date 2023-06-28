@@ -12,6 +12,6 @@ struct CellsID {
 
 	static let channelsGroup = "ChannelGroup"
 	static let channelsListCell = "ChannelsListCell"
-	static let channelCell = "ChannelCell"
+	static let channelCell = "ChannelTableViewCell"
 	static let qualityCell = "QualityCell"
 }
