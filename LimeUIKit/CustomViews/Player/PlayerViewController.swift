@@ -150,8 +150,7 @@ extension PlayerViewController {
 			}
 
 			if let error {
-				//TODO: ShowError
-				print(error.localizedDescription)
+				self?.displayAlert(with: "Error", message: error.localizedDescription)
 			}
 		}
 	}
@@ -160,7 +159,7 @@ extension PlayerViewController {
 	private func changeResolution(for video: Video, with newResolution: Resolution, in player: AVPlayer) {
 
 		guard let stream = video.streams.first(where: { $0.resolution == newResolution }) else {
-			print("Failed to change resolution")
+			displayAlert(with: "Error", message: ErrorMessage.videoNotFound.rawValue)
 			return
 		}
 

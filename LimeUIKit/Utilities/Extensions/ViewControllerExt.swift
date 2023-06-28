@@ -29,3 +29,20 @@ extension UIViewController: UIPopoverPresentationControllerDelegate {
 		}
 	}
 }
+
+
+//MARK: Alert
+extension UIViewController {
+
+	func displayAlert(with title: String, message: String, action: UIAlertAction = UIAlertAction(title: "Ok", style: .default)) {
+		DispatchQueue.main.async {
+			guard self.presentedViewController == nil else {
+				return
+			}
+
+			let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+			alertController.addAction(action)
+			self.present(alertController, animated: true)
+		}
+	}
+}

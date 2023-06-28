@@ -50,9 +50,11 @@ final class ChannelsViewController: UIViewController {
 		  }
 	 }
 
+
 	override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
 		.portrait
 	}
+
 
 	override var shouldAutorotate: Bool {
 		 false
@@ -126,17 +128,18 @@ extension ChannelsViewController {
 
 					 case .success(let data):
 						  guard let channelsModel: ChannelsModel = DataDecoder.decode(data) else {
-								//TODO: Present alert
+								displayAlert(with: "Error", message: ErrorMessage.decodingError.rawValue)
 								return
 						  }
 						  DispatchQueue.main.async {
 								self.channels = channelsModel.channels
 								self.channelsList.reloadData()
 						  }
-					 case .failure(_):
-						  //TODO: Present alert
+					 case .failure(let error as ErrorMessage):
+						displayAlert(with: "Error", message: error.rawValue)
 
-						  break
+					case .failure(let error):
+						displayAlert(with: "Error", message: error.localizedDescription)
 				}
 		  }
 	 }
@@ -148,10 +151,10 @@ extension ChannelsViewController {
 				try favouritesStorage.getAlObjects()
 
 		  } catch let error as ErrorMessage {
-				//TODO: Present alert
+				displayAlert(with: "Error", message: error.rawValue)
 		  }
 		  catch {
-
+				displayAlert(with: "Error", message: error.localizedDescription)
 		  }
 	 }
 
@@ -317,6 +320,8 @@ extension ChannelsViewController: UICollectionViewDelegate {
 //MARK: - UICollectionViewDelegate
 extension ChannelsViewController: CollectionViewCellDelegate {
 
+
+
 	 func showPlayer(for channel: Channel) {
 		 let playerViewController = storyboard?.instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
 		 playerViewController.setUp(with: channel)
@@ -327,4 +332,13 @@ extension ChannelsViewController: CollectionViewCellDelegate {
 		  fetchFavoriteChannels()
 		  channelsList.reloadData()
 	 }
+
+	func didFinishedWith(error: Error) {
+
+		if let error = error as? ErrorMessage {
+			displayAlert(with: "Error", message: error.rawValue)
+		} else {
+			displayAlert(with: "Error", message: error.localizedDescription)
+		}
+	}
 }

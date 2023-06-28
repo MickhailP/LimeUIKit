@@ -32,7 +32,7 @@ final class NetworkService: NetworkingProtocol {
 				} catch  {
 					 print(error)
 					 print(error.localizedDescription)
-					 completionHandler(.failure(ErrorMessage.decodingError))
+					completionHandler(.failure(error))
 				}
 		  }
 		  task.resume()
@@ -45,7 +45,6 @@ final class NetworkService: NetworkingProtocol {
 					 print("Cached")
 				completion(cachedImage)
 		  } else {
-				var image: UIImage? = nil
 
 				fetchImage(from: url) { fetchedImage in
 					 if let fetchedImage {
@@ -66,7 +65,7 @@ final class NetworkService: NetworkingProtocol {
 		  }
 
 		  let task = URLSession.shared.dataTask(with: url) { data, response, error in
-				if let error {
+				if error != nil {
 					 completionHandler(nil)
 					 return
 				}

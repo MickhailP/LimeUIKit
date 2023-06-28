@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GroupCell: UICollectionViewCell {
+final class GroupCell: UICollectionViewCell {
 
 	 @IBOutlet var categoryLabel: UILabel!
 	 @IBOutlet var selectionBar: UIView!

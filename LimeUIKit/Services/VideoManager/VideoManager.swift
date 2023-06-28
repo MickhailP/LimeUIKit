@@ -39,7 +39,7 @@ final class VideoManager {
 
 					guard let m3u8String = String(data: data, encoding: .utf8) else {
 						print("Invalid response data or encoding")
-						completionHandler(nil, ErrorMessage.decodingError)
+						completionHandler(nil, ErrorMessage.m3u8Fail)
 						return
 					}
 

@@ -19,6 +19,8 @@ enum ErrorMessage: String, Error {
 	 case unableFetchFromDataBase = "Failed to load data from storage."
 
 	 case unableConvertImageData = "Failed to convert image for uploading format"
+	case videoNotFound = "Video resolution not found"
+	case m3u8Fail = "Cannot fetch index.m3u8"
 
 	 case unknown = "Unknown error"
 }

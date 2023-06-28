@@ -14,6 +14,8 @@ protocol CollectionViewCellDelegate: AnyObject {
 	 
 	 func favoriteButtonPressed()
 	 func showPlayer(for channel: Channel)
+
+	func didFinishedWith(error: Error)
 }
 
 
@@ -95,7 +97,7 @@ extension ChannelsListCell: ChannelCellDelegate {
 	 func favoriteButtonPressed(for channel: Channel) {
 
 		  guard let isFavourite = favouritesService?.contains(channel.id) else {
-				//TODO: SHOW ALERT
+				delegate?.didFinishedWith(error: ErrorMessage.unableFetchFromDataBase)
 				return
 		  }
 
@@ -112,8 +114,8 @@ extension ChannelsListCell: ChannelCellDelegate {
 
 				delegate?.favoriteButtonPressed()
 
-		  } catch {
-				//TODO: SHOW ALERT
-		  }
+		  } catch let error {
+				delegate?.didFinishedWith(error: error)
+			}
 	 }
 }
