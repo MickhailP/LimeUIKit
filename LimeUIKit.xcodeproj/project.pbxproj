@@ -13,6 +13,10 @@
 		D72B1DD62A4C55D90097033B /* QualityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B1DD42A4C55D90097033B /* QualityCell.swift */; };
 		D72B1DD72A4C55D90097033B /* QualityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D72B1DD52A4C55D90097033B /* QualityCell.xib */; };
 		D72B1DDA2A4C57050097033B /* ViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B1DD92A4C57050097033B /* ViewControllerExt.swift */; };
+		D72B1DE12A4C73FC0097033B /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B1DE02A4C73FC0097033B /* VideoManager.swift */; };
+		D72B1DE52A4C74510097033B /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B1DE32A4C74510097033B /* VideoModel.swift */; };
+		D72B1DE92A4C96780097033B /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B1DE82A4C96780097033B /* Parser.swift */; };
+		D72B1DEC2A4CA1580097033B /* MediaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B1DEB2A4CA1580097033B /* MediaInfo.swift */; };
 		D747E0EC2A44A5B500A8B569 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747E0EB2A44A5B500A8B569 /* StringExt.swift */; };
 		D747E0F72A49901000A8B569 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747E0F52A49901000A8B569 /* GroupCell.swift */; };
 		D747E0F82A49901000A8B569 /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D747E0F62A49901000A8B569 /* GroupCell.xib */; };
@@ -45,6 +49,10 @@
 		D72B1DD42A4C55D90097033B /* QualityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualityCell.swift; sourceTree = "<group>"; };
 		D72B1DD52A4C55D90097033B /* QualityCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QualityCell.xib; sourceTree = "<group>"; };
 		D72B1DD92A4C57050097033B /* ViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExt.swift; sourceTree = "<group>"; };
+		D72B1DE02A4C73FC0097033B /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
+		D72B1DE32A4C74510097033B /* VideoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		D72B1DE82A4C96780097033B /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		D72B1DEB2A4CA1580097033B /* MediaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaInfo.swift; sourceTree = "<group>"; };
 		D747E0EB2A44A5B500A8B569 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		D747E0F52A49901000A8B569 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 		D747E0F62A49901000A8B569 /* GroupCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
@@ -109,6 +117,23 @@
 			path = Popover;
 			sourceTree = "<group>";
 		};
+		D72B1DDF2A4C73E00097033B /* VideoManager */ = {
+			isa = PBXGroup;
+			children = (
+				D72B1DE02A4C73FC0097033B /* VideoManager.swift */,
+			);
+			path = VideoManager;
+			sourceTree = "<group>";
+		};
+		D72B1DE22A4C743F0097033B /* VideoModels */ = {
+			isa = PBXGroup;
+			children = (
+				D72B1DE32A4C74510097033B /* VideoModel.swift */,
+				D72B1DEB2A4CA1580097033B /* MediaInfo.swift */,
+			);
+			path = VideoModels;
+			sourceTree = "<group>";
+		};
 		D747E0E42A4480E700A8B569 /* GroupCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,9 +155,11 @@
 		D7A34E112A41D96E00360280 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D72B1DDF2A4C73E00097033B /* VideoManager */,
 				D7A34E1D2A4213CF00360280 /* Decoder */,
 				D7A34E172A41FEF400360280 /* Persistance */,
 				D7EADE5829B67F590090D421 /* Networking */,
+				D72B1DE82A4C96780097033B /* Parser.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -266,6 +293,7 @@
 		D7EADE7029B67FE80090D421 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D72B1DE22A4C743F0097033B /* VideoModels */,
 				D7EADE7129B67FE80090D421 /* ChannelsModel.swift */,
 				D7EADE7529B6806E0090D421 /* ChannelsCategories.swift */,
 			);
@@ -288,6 +316,8 @@
 			dependencies = (
 			);
 			name = LimeUIKit;
+			packageProductDependencies = (
+			);
 			productName = LimeUIKit;
 			productReference = D7EADE4129B67E6B0090D421 /* LimeUIKit.app */;
 			productType = "com.apple.product-type.application";
@@ -316,6 +346,8 @@
 				Base,
 			);
 			mainGroup = D7EADE3829B67E6B0090D421;
+			packageReferences = (
+			);
 			productRefGroup = D7EADE4229B67E6B0090D421 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -355,7 +387,9 @@
 				D7EADE4529B67E6B0090D421 /* AppDelegate.swift in Sources */,
 				D747E0F72A49901000A8B569 /* GroupCell.swift in Sources */,
 				D7EADE7629B6806E0090D421 /* ChannelsCategories.swift in Sources */,
+				D72B1DE12A4C73FC0097033B /* VideoManager.swift in Sources */,
 				D7A34E192A41FF0800360280 /* ImageCacheManager.swift in Sources */,
+				D72B1DE52A4C74510097033B /* VideoModel.swift in Sources */,
 				D7A34E212A42F99200360280 /* FavouritesChannelsDataService.swift in Sources */,
 				D71C0ED72A4B096500AB6FE1 /* PlayerViewController.swift in Sources */,
 				D7EADE6129B67F5A0090D421 /* Endpoints.swift in Sources */,
@@ -363,7 +397,9 @@
 				D72B1DDA2A4C57050097033B /* ViewControllerExt.swift in Sources */,
 				D72B1DCE2A4C54880097033B /* PopoverViewController.swift in Sources */,
 				D7EADE6329B67F5A0090D421 /* NetworkingProtocol.swift in Sources */,
+				D72B1DE92A4C96780097033B /* Parser.swift in Sources */,
 				D72B1DD62A4C55D90097033B /* QualityCell.swift in Sources */,
+				D72B1DEC2A4CA1580097033B /* MediaInfo.swift in Sources */,
 				D7EADE4729B67E6B0090D421 /* SceneDelegate.swift in Sources */,
 				D7A34E292A43063F00360280 /* Constants.swift in Sources */,
 				D7A34E162A41E7CF00360280 /* ErrorMessages.swift in Sources */,

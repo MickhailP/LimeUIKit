@@ -336,16 +336,10 @@ extension ChannelsViewController: CollectionViewCellDelegate {
 
 	 func showPlayer(for channel: Channel) {
 
-		 guard let url = URL(string: channel.url) else {
-			 //TODO: Present ALERT
-			 return
-		 }
-
 		 let playerViewController = storyboard?.instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
-		 		 playerViewController.setUp(with: url)
+		 playerViewController.setUp(with: channel)
 
 		 show(playerViewController, sender: self)
-
 	 }
 
 	 func favoriteButtonPressed() {

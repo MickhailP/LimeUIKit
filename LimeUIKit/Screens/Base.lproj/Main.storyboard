@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="landscape" appearance="light"/>
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
@@ -16,11 +16,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ChannelsViewController" customModule="LimeUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar clipsSubviews="YES" contentMode="redraw" placeholder="Напишите название телеканала" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnl-Wu-LgX">
-                                <rect key="frame" x="0.0" y="0.0" width="793" height="50"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="xPu-27-hFV"/>
                                 </constraints>
@@ -30,7 +30,7 @@
                                 </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zsB-cq-5r4">
-                                <rect key="frame" x="0.0" y="50" width="793" height="50"/>
+                                <rect key="frame" x="0.0" y="109" width="393" height="50"/>
                                 <color key="backgroundColor" name="CustomGray"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="RC1-wR-NDf"/>
@@ -53,7 +53,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dJm-UJ-Vnq">
-                                <rect key="frame" x="59" y="110" width="734" height="283"/>
+                                <rect key="frame" x="0.0" y="169" width="393" height="683"/>
                                 <color key="backgroundColor" name="CustomBackground"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="1jj-1D-ACI">
                                     <size key="itemSize" width="100" height="100"/>
@@ -63,7 +63,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ChannelsListCell" id="xLp-26-JdH" customClass="ChannelsListCell" customModule="LimeUIKit" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-140.66666666666666" width="388" height="564"/>
+                                        <rect key="frame" x="0.0" y="59.666666666666664" width="388" height="564"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="WHJ-do-9dj">
                                             <rect key="frame" x="0.0" y="0.0" width="388" height="564"/>
@@ -106,11 +106,11 @@
             <objects>
                 <viewController storyboardIdentifier="PlayerViewController" modalPresentationStyle="fullScreen" id="NQx-lx-ETe" customClass="PlayerViewController" customModule="LimeUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DSh-Qc-e52">
-                        <rect key="frame" x="0.0" y="0.0" width="852" height="393"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5EH-Ir-2Fe">
-                                <rect key="frame" x="0.0" y="-43" width="852" height="479"/>
+                                <rect key="frame" x="0.0" y="315.33333333333331" width="393" height="221.33333333333331"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="5EH-Ir-2Fe" secondAttribute="height" multiplier="16:9" id="mPE-NX-nqD"/>

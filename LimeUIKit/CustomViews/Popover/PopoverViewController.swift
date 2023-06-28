@@ -10,7 +10,7 @@ import UIKit
 
 protocol QualityCellDelegate: AnyObject {
 
-	func qualityDidSelect()
+	func didSelect(_ stream: Stream)
 }
 
 
@@ -21,11 +21,11 @@ final class PopoverViewController: UIViewController {
 	weak var delegate: QualityCellDelegate?
 
 
-	var qualities: [String]
+		var streams: [Stream]
 
 
-		init(qualities: [String]) {
-			self.qualities = qualities
+		init(streams: [Stream]) {
+			self.streams = streams
 			super.init(nibName: "PopoverViewController", bundle: nil)
 		}
 
@@ -57,15 +57,15 @@ final class PopoverViewController: UIViewController {
 extension PopoverViewController: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		qualities.count
+		streams.count
 	}
 
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
 		let cell = tableView.dequeueReusableCell(withIdentifier: CellsID.qualityCell) as! QualityCell
-		let quality = qualities[indexPath.row]
-		cell.setLabel(with: quality)
+		let resolution = streams[indexPath.row].resolution
+		cell.setLabel(with: resolution)
 		return cell
 	}
 }
@@ -77,10 +77,16 @@ extension PopoverViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
 		let cell = tableView.cellForRow(at: indexPath) as! QualityCell
+
 		cell.label.textColor = .white
-		delegate?.qualityDidSelect()
+
+		let stream = streams[indexPath.row]
+
+		delegate?.didSelect(stream)
+
 		dismiss(animated: true, completion: nil)
 	}
+
 
 	func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
 

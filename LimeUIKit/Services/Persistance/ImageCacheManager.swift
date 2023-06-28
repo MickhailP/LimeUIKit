@@ -16,6 +16,7 @@ protocol ImageStorageProtocol {
 	 func get(key: String) -> UIImage?
 }
 
+
 //MARK: - ImageCacheManager
 final class ImageCacheManager: ImageStorageProtocol {
 
