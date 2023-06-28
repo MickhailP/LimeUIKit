@@ -11,8 +11,8 @@ import UIKit
 
 protocol NetworkingProtocol: AnyObject {
 
-	 func downloadDataResult(from url: String, completionHandler: @escaping (Result<Data, Error>) -> Void)
-	 func downloadImage(from url: String) -> UIImage?
+	 func downloadDataResult(from url: URL, completionHandler: @escaping (Result<Data, Error>) -> Void)
+	func downloadImage(from url: String, completion: @escaping (UIImage?) -> Void)
 }
 
 

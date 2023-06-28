@@ -13,13 +13,7 @@ final class NetworkService: NetworkingProtocol {
 
 	 let cache = ImageCacheManager.shared
 
-	 func downloadDataResult(from url: String, completionHandler: @escaping (Result<Data, Error>) -> Void) {
-
-
-		  guard let url = URL(string: url) else {
-				completionHandler(.failure(ErrorMessage.badURl))
-				return
-		  }
+	 func downloadDataResult(from url: URL, completionHandler: @escaping (Result<Data, Error>) -> Void) {
 
 		  let task = URLSession.shared.dataTask(with: url) { data, response, error in
 				if let error {
@@ -45,18 +39,21 @@ final class NetworkService: NetworkingProtocol {
 	 }
 
 
-	 func downloadImage(from url: String) -> UIImage? {
+	func downloadImage(from url: String, completion: @escaping (UIImage?) -> Void) {
 
 		  if let cachedImage = cache.get(key: url) {
-				return cachedImage
+					 print("Cached")
+				completion(cachedImage)
 		  } else {
 				var image: UIImage? = nil
 
 				fetchImage(from: url) { fetchedImage in
-					 image = fetchedImage
+					 if let fetchedImage {
+						  self.cache.add(key: url, value: fetchedImage)
+						 completion(fetchedImage)
+					 }
 				}
-
-				return image
+				print("Loaded")
 		  }
 	 }
 
