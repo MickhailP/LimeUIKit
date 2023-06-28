@@ -9,7 +9,7 @@ import Foundation
 
 
 // MARK: - ChannelsModel
-struct ChannelsModel: Codable {
+struct ChannelsModel: Decodable {
     let channels: [Channel]
     let valid: Int?
     let ckey: String?

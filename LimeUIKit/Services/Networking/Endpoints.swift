@@ -17,7 +17,7 @@ enum Endpoint {
 //MARK: - Components
 extension Endpoint {
 
-	 var scheme: String { "https" }
+	 var scheme: String { "http" }
 
 	 var host: String { "limehd.online" }
 
@@ -36,6 +36,7 @@ extension Endpoint {
 
 //MARK: - URL
 extension Endpoint {
+
 	 var url: URL? {
 		  var components = URLComponents()
 		  components.scheme = scheme

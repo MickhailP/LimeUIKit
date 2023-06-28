@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum Categories: String, CaseIterable {
+enum Category: String, CaseIterable {
+	 
     case all = "Все"
     case favourites = "Избранные"
 }
