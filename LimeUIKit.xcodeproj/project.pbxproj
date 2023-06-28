@@ -15,7 +15,7 @@
 		D72B1DDA2A4C57050097033B /* ViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B1DD92A4C57050097033B /* ViewControllerExt.swift */; };
 		D72B1DE12A4C73FC0097033B /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B1DE02A4C73FC0097033B /* VideoManager.swift */; };
 		D72B1DE52A4C74510097033B /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B1DE32A4C74510097033B /* VideoModel.swift */; };
-		D72B1DE92A4C96780097033B /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B1DE82A4C96780097033B /* Parser.swift */; };
+		D72B1DE92A4C96780097033B /* M3U8Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B1DE82A4C96780097033B /* M3U8Parser.swift */; };
 		D72B1DEC2A4CA1580097033B /* MediaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B1DEB2A4CA1580097033B /* MediaInfo.swift */; };
 		D747E0EC2A44A5B500A8B569 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747E0EB2A44A5B500A8B569 /* StringExt.swift */; };
 		D747E0F72A49901000A8B569 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D747E0F52A49901000A8B569 /* GroupCell.swift */; };
@@ -51,7 +51,7 @@
 		D72B1DD92A4C57050097033B /* ViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExt.swift; sourceTree = "<group>"; };
 		D72B1DE02A4C73FC0097033B /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
 		D72B1DE32A4C74510097033B /* VideoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
-		D72B1DE82A4C96780097033B /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		D72B1DE82A4C96780097033B /* M3U8Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = M3U8Parser.swift; sourceTree = "<group>"; };
 		D72B1DEB2A4CA1580097033B /* MediaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaInfo.swift; sourceTree = "<group>"; };
 		D747E0EB2A44A5B500A8B569 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		D747E0F52A49901000A8B569 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 				D7A34E1D2A4213CF00360280 /* Decoder */,
 				D7A34E172A41FEF400360280 /* Persistance */,
 				D7EADE5829B67F590090D421 /* Networking */,
-				D72B1DE82A4C96780097033B /* Parser.swift */,
+				D72B1DE82A4C96780097033B /* M3U8Parser.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -397,7 +397,7 @@
 				D72B1DDA2A4C57050097033B /* ViewControllerExt.swift in Sources */,
 				D72B1DCE2A4C54880097033B /* PopoverViewController.swift in Sources */,
 				D7EADE6329B67F5A0090D421 /* NetworkingProtocol.swift in Sources */,
-				D72B1DE92A4C96780097033B /* Parser.swift in Sources */,
+				D72B1DE92A4C96780097033B /* M3U8Parser.swift in Sources */,
 				D72B1DD62A4C55D90097033B /* QualityCell.swift in Sources */,
 				D72B1DEC2A4CA1580097033B /* MediaInfo.swift in Sources */,
 				D7EADE4729B67E6B0090D421 /* SceneDelegate.swift in Sources */,

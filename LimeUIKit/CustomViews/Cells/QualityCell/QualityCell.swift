@@ -11,6 +11,8 @@ final class QualityCell: UITableViewCell {
 
 	@IBOutlet var label: UILabel!
 
+	var resolution: Resolution?
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -19,7 +21,9 @@ final class QualityCell: UITableViewCell {
 			selectedBackgroundView = backgroundView
     }
 
-	func setLabel(with text: String) {
-		label.text = text
+
+	func setLabel(with resolution: Resolution) {
+		self.resolution = resolution
+		label.text = resolution.displayValue
 	}
 }
