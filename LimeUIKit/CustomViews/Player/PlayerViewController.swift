@@ -7,20 +7,22 @@
 
 import UIKit
 import AVKit
-import AVFoundation
 
-class PlayerViewController: UIViewController {
+
+final class PlayerViewController: UIViewController {
 
 	@IBOutlet var videoView: UIView!
 
 	let qualityButton = UIButton(type: .system)
 	let backButton = UIButton(type: .system)
 
-	var url: URL?
+	var channel: Channel?
+	var video: Video?
 
 	var player: AVPlayer!
 	var playerLayer: AVPlayerLayer!
 
+	let videoManager = VideoManager()
 
 
 	override func viewDidLoad() {
@@ -29,6 +31,7 @@ class PlayerViewController: UIViewController {
 		addQualityButton()
 		addBackButton()
 
+		getVideo()
 		setUpPlayer()
 	}
 
@@ -49,16 +52,22 @@ class PlayerViewController: UIViewController {
 	override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
 		.landscape
 	}
+}
 
 
-	func setUp(with url: URL) {
-		self.url = url
+//MARK: - View Setup
+extension PlayerViewController {
+
+	func setUp(with channel: Channel ) {
+		self.channel = channel
 	}
 
 
-	func setUpPlayer() {
+	private func setUpPlayer() {
 
-		guard let url	else {
+		guard let channel,
+					let url = URL(string: channel.url)
+		else {
 			return
 		}
 
@@ -71,12 +80,13 @@ class PlayerViewController: UIViewController {
 	}
 
 
-	func addQualityButton() {
+	private func addQualityButton() {
 
 		qualityButton.tintColor = .white
 		qualityButton.setImage(UIImage(named: "gear"), for: .normal)
 		qualityButton.addTarget(self, action: #selector(qualityButtonPressed), for: .touchUpInside)
 		qualityButton.translatesAutoresizingMaskIntoConstraints = false
+
 		view.addSubview(qualityButton)
 
 
@@ -89,12 +99,15 @@ class PlayerViewController: UIViewController {
 
 	@objc func qualityButtonPressed() {
 
-		let popoverContent = PopoverViewController(qualities: ["MID", "Auto", "Low"])
+		guard let streams = video?.streams else { return }
+
+		let popoverContent = PopoverViewController(streams: streams)
+		popoverContent.delegate = self
 		presentPopover(self, popoverContent, sender: qualityButton, size: CGSize(width: 100, height: 150), arrowDirection: .down)
 	}
 
 
-	func addBackButton() {
+	private func addBackButton() {
 
 		backButton.tintColor = .white
 		backButton.setImage(UIImage(named: "arrow.left"), for: .normal)
@@ -118,4 +131,64 @@ class PlayerViewController: UIViewController {
 			dismiss(animated: true, completion: nil)
 		}
 }
+
+
+//MARK: - VideoResolutions
+extension PlayerViewController {
+
+	private func getVideo() {
+
+		guard let channel	else {
+			return
+		}
+
+		videoManager.decodePlaylist(from: channel.url) { [weak self] streams, error in
+
+			if let streams {
+
+				self?.video = Video(streams: streams)
+			}
+
+			if let error {
+				//TODO: ShowError
+				print(error.localizedDescription)
+			}
+		}
+	}
+
+
+	private func changeResolution(for video: Video, with newResolution: Resolution, in player: AVPlayer) {
+
+		guard let stream = video.streams.first(where: { $0.resolution == newResolution }) else {
+			print("Failed to change resolution")
+			return
+		}
+
+		let currentTime: CMTime
+
+		if let currentItem = player.currentItem {
+			currentTime = currentItem.currentTime()
+		} else {
+			currentTime = .zero
+		}
+
+		player.replaceCurrentItem(with: AVPlayerItem(url: stream.streamURL))
+		player.seek(to: currentTime, toleranceBefore: .zero, toleranceAfter: .zero)
+		player.play()
+		print("Resolution changed")
+	}
+}
+
+
+//MARK: - QualityCellDelegate
+extension PlayerViewController: QualityCellDelegate {
+
+	func didSelect(_ stream: Stream) {
+
+		guard  let video else { return }
+
+		changeResolution(for: video, with: stream.resolution, in: self.player)
+	}
+}
+
 
