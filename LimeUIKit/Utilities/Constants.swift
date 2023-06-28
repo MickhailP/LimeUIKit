@@ -10,8 +10,8 @@ import Foundation
 
 struct CellsID {
 
-	 static let channelsGroup = "ChannelGroup"
-	 static let channelsListCell = "ChannelsListCell"
-	 static let channelCell = "ChannelCell"
+	static let channelsGroup = "ChannelGroup"
+	static let channelsListCell = "ChannelsListCell"
+	static let channelCell = "ChannelCell"
 	static let qualityCell = "QualityCell"
 }

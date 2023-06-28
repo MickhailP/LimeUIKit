@@ -29,6 +29,7 @@ final class M3U8Parser {
 		return mediaInfoArray
 	}
 
+
 	private func extractResolution(from line: String) -> String {
 		guard let range = line.range(of: "RESOLUTION=") else {
 			return ""

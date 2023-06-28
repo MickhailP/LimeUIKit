@@ -10,7 +10,6 @@ import AVKit
 
 final class ChannelsViewController: UIViewController {
 
-
 	 let networkService: NetworkingProtocol = NetworkService()
 	 let favouritesStorage = FavouritesChannelsDataService()
 
@@ -18,23 +17,19 @@ final class ChannelsViewController: UIViewController {
 	 @IBOutlet var channelsGroups: UICollectionView!
 	 @IBOutlet var channelsList: UICollectionView!
 
-
 	 var channels: [Channel] = []
 	 var filteredChannels: [Channel] = []
 
-
 	 let tabItemsCategories: [Category] = Category.allCases
 	 var selectedCategory: Category = .all
-
 
 	 var isSearching: Bool = false
 
 
 	 //MARK: ViewController LifeCycle
 	 override func viewDidLoad() {
-        super.viewDidLoad()
+			super.viewDidLoad()
 
-		  configureNavigationController()
 		  configureSearchBar()
 		  configureCollectionViews()
 
@@ -68,11 +63,6 @@ final class ChannelsViewController: UIViewController {
 //MARK: - CollectionView setup
 extension ChannelsViewController {
 
-	 private func configureNavigationController() {
-		  navigationController?.isNavigationBarHidden = true
-	 }
-
-
 	 private func configureSearchBar() {
 		  searchBar.barTintColor = UIColor(named: "CustomGray")
 
@@ -101,7 +91,6 @@ extension ChannelsViewController {
 		  searchBar.delegate = self
 		  channelsGroups.delegate = self
 		  channelsList.delegate = self
-		  
 	 }
 
 
@@ -209,7 +198,6 @@ extension ChannelsViewController: UISearchBarDelegate {
 
 
 	 func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-
 		  if let searchText = searchBar.text {
 				performSearching(searchText)
 		  }
@@ -217,7 +205,6 @@ extension ChannelsViewController: UISearchBarDelegate {
 
 
 	 private func performSearching(_ searchText: String) {
-
 		  if searchText.count !=  0 {
 				searchChannel(by: searchText)
 		  } else {
@@ -228,10 +215,7 @@ extension ChannelsViewController: UISearchBarDelegate {
 
 
 	 private func searchChannel(by name: String) {
-
-
 		  filteredChannels = channels.filter { $0.nameRu.localizedCaseInsensitiveContains(name) }
-
 		  channelsList.reloadData()
 	 }
 
@@ -258,7 +242,6 @@ extension ChannelsViewController: UICollectionViewDataSource {
 	 func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		  tabItemsCategories.count
 	 }
-
 
 	 func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
@@ -292,7 +275,6 @@ extension ChannelsViewController: UICollectionViewDelegateFlowLayout {
 	 func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
 		  if collectionView == channelsGroups {
-
 				let groupName = tabItemsCategories[indexPath.row].rawValue
 				let width = groupName.widthOfString(usingFont: UIFont.systemFont(ofSize: 17))
 				return CGSize(width: width + 20, height: collectionView.frame.height)
@@ -321,7 +303,8 @@ extension ChannelsViewController: UICollectionViewDelegateFlowLayout {
 extension ChannelsViewController: UICollectionViewDelegate {
 
 	 func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		  if collectionView == channelsGroups {
+
+		 if collectionView == channelsGroups {
 				selectedCategory = tabItemsCategories[indexPath.item]
 				channelsGroups.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
 				channelsGroups.reloadData()
@@ -335,15 +318,12 @@ extension ChannelsViewController: UICollectionViewDelegate {
 extension ChannelsViewController: CollectionViewCellDelegate {
 
 	 func showPlayer(for channel: Channel) {
-
 		 let playerViewController = storyboard?.instantiateViewController(withIdentifier: "PlayerViewController") as! PlayerViewController
 		 playerViewController.setUp(with: channel)
-
 		 show(playerViewController, sender: self)
 	 }
 
 	 func favoriteButtonPressed() {
-
 		  fetchFavoriteChannels()
 		  channelsList.reloadData()
 	 }

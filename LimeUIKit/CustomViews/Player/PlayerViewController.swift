@@ -184,9 +184,7 @@ extension PlayerViewController {
 extension PlayerViewController: QualityCellDelegate {
 
 	func didSelect(_ stream: Stream) {
-
-		guard  let video else { return }
-
+		guard let video else { return }
 		changeResolution(for: video, with: stream.resolution, in: self.player)
 	}
 }

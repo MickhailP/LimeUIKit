@@ -28,27 +28,31 @@ final class ChannelsListCell: UICollectionViewCell {
 
 	 weak var delegate: CollectionViewCellDelegate?
 
+
 	 override func awakeFromNib() {
 		  super.awakeFromNib()
 
 		  configureTableView()
 	 }
+}
 
 
+//MARK: - View setup
+extension ChannelsListCell {
 
-	 func setUp(channels: [Channel], favouritesService: FavouritesChannelsDataService) {
-		  self.channels = channels
-		  self.favouritesService = favouritesService
-		  channelsTableView.reloadData()
-	 }
+	func setUp(channels: [Channel], favouritesService: FavouritesChannelsDataService) {
+		self.channels = channels
+		self.favouritesService = favouritesService
+		channelsTableView.reloadData()
+	}
 
 
-	 private func configureTableView() {
-		  channelsTableView.delegate = self
-		  channelsTableView.dataSource = self
-		  channelsTableView.register(UINib(nibName: "ChannelTableViewCell", bundle: nil), forCellReuseIdentifier: CellsID.channelCell)
-		  channelsTableView.separatorStyle = .none
-	 }
+	private func configureTableView() {
+		channelsTableView.delegate = self
+		channelsTableView.dataSource = self
+		channelsTableView.register(UINib(nibName: "ChannelTableViewCell", bundle: nil), forCellReuseIdentifier: CellsID.channelCell)
+		channelsTableView.separatorStyle = .none
+	}
 }
 
 
@@ -71,8 +75,6 @@ extension ChannelsListCell: UITableViewDataSource {
 		  cell.setCell(with: channel, isFavorite: isFavourite)
 		  return cell
 	 }
-
-
 }
 
 
@@ -86,14 +88,6 @@ extension ChannelsListCell: UITableViewDelegate {
 	 }
 }
 
-
-//TODO: IMAGES
-extension ChannelsListCell: UITableViewDataSourcePrefetching {
-
-	 func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
-
-	 }
-}
 
 //MARK: - ChannelCellDelegate
 extension ChannelsListCell: ChannelCellDelegate {

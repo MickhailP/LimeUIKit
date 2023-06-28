@@ -34,8 +34,6 @@ final class ChannelTableViewCell: UITableViewCell {
 	 @IBOutlet var favoriteButton: UIButton!
 
 
-
-
 	 override func awakeFromNib() {
 		  super.awakeFromNib()
 		  

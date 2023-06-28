@@ -134,6 +134,14 @@
 			path = VideoModels;
 			sourceTree = "<group>";
 		};
+		D72B1DED2A4CB04F0097033B /* M3U8Parser */ = {
+			isa = PBXGroup;
+			children = (
+				D72B1DE82A4C96780097033B /* M3U8Parser.swift */,
+			);
+			path = M3U8Parser;
+			sourceTree = "<group>";
+		};
 		D747E0E42A4480E700A8B569 /* GroupCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,7 +167,7 @@
 				D7A34E1D2A4213CF00360280 /* Decoder */,
 				D7A34E172A41FEF400360280 /* Persistance */,
 				D7EADE5829B67F590090D421 /* Networking */,
-				D72B1DE82A4C96780097033B /* M3U8Parser.swift */,
+				D72B1DED2A4CB04F0097033B /* M3U8Parser */,
 			);
 			path = Services;
 			sourceTree = "<group>";
