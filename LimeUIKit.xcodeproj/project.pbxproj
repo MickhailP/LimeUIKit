@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D71C0ED72A4B096500AB6FE1 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C0ED62A4B096500AB6FE1 /* PlayerViewController.swift */; };
-		D71C0ED92A4B1E8100AB6FE1 /* VideoPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71C0ED82A4B1E8100AB6FE1 /* VideoPlayer.xib */; };
-		D71C0EDB2A4B1EBF00AB6FE1 /* VideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71C0EDA2A4B1EBF00AB6FE1 /* VideoPlayer.swift */; };
 		D72B1DCE2A4C54880097033B /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B1DCC2A4C54880097033B /* PopoverViewController.swift */; };
 		D72B1DCF2A4C54880097033B /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D72B1DCD2A4C54880097033B /* PopoverViewController.xib */; };
 		D72B1DD62A4C55D90097033B /* QualityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D72B1DD42A4C55D90097033B /* QualityCell.swift */; };
@@ -42,8 +40,6 @@
 
 /* Begin PBXFileReference section */
 		D71C0ED62A4B096500AB6FE1 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
-		D71C0ED82A4B1E8100AB6FE1 /* VideoPlayer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoPlayer.xib; sourceTree = "<group>"; };
-		D71C0EDA2A4B1EBF00AB6FE1 /* VideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayer.swift; sourceTree = "<group>"; };
 		D72B1DCC2A4C54880097033B /* PopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
 		D72B1DCD2A4C54880097033B /* PopoverViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
 		D72B1DD42A4C55D90097033B /* QualityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualityCell.swift; sourceTree = "<group>"; };
@@ -91,8 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				D71C0ED62A4B096500AB6FE1 /* PlayerViewController.swift */,
-				D71C0ED82A4B1E8100AB6FE1 /* VideoPlayer.xib */,
-				D71C0EDA2A4B1EBF00AB6FE1 /* VideoPlayer.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -342,7 +336,6 @@
 				D7EADE4E29B67E710090D421 /* Assets.xcassets in Resources */,
 				D72B1DCF2A4C54880097033B /* PopoverViewController.xib in Resources */,
 				D72B1DD72A4C55D90097033B /* QualityCell.xib in Resources */,
-				D71C0ED92A4B1E8100AB6FE1 /* VideoPlayer.xib in Resources */,
 				D7A34E272A43059200360280 /* ChannelsListCell.xib in Resources */,
 				D7EADE4C29B67E6B0090D421 /* Main.storyboard in Resources */,
 			);
@@ -373,7 +366,6 @@
 				D72B1DD62A4C55D90097033B /* QualityCell.swift in Sources */,
 				D7EADE4729B67E6B0090D421 /* SceneDelegate.swift in Sources */,
 				D7A34E292A43063F00360280 /* Constants.swift in Sources */,
-				D71C0EDB2A4B1EBF00AB6FE1 /* VideoPlayer.swift in Sources */,
 				D7A34E162A41E7CF00360280 /* ErrorMessages.swift in Sources */,
 				D7EADE6229B67F5A0090D421 /* Networking.swift in Sources */,
 				D7A34E302A43095200360280 /* ChannelTableViewCell.swift in Sources */,
