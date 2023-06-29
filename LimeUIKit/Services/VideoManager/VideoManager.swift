@@ -44,6 +44,7 @@ final class VideoManager {
 
 					let media = M3U8Parser().parseMediaInfo(from: m3u8String)
 					let streams = self.createStreams(for: media, using: url)
+					completionHandler(streams, nil)
 
 				case let .failure(error):
 					print(error)
