@@ -56,7 +56,7 @@ final class PlayerViewController: UIViewController {
 }
 
 
-//MARK: - View Setup
+//MARK: - ViewSetup
 extension PlayerViewController {
 
 	func setUp(with channel: Channel) {
@@ -80,7 +80,10 @@ extension PlayerViewController {
 
 		videoView.layer.addSublayer(playerLayer)
 	}
+}
 
+//MARK: - ButtonsConfiguration
+extension PlayerViewController {
 
 	private func addQualityButton() {
 

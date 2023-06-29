@@ -108,8 +108,6 @@ extension ChannelsListCell: ChannelCellDelegate {
 				print("added")
 			}
 
-			channelsTableView.reloadData()
-
 			delegate?.favoriteButtonPressed()
 
 		} catch let error {
