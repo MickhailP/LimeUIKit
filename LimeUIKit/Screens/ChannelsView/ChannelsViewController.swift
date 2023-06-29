@@ -39,16 +39,7 @@ final class ChannelsViewController: UIViewController {
    }
 
 
-   func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-	  if scrollView == channelsList {
-		 let cells = channelsList.visibleCells
-		 if let cell = cells.first, let indexPath = channelsList.indexPath(for: cell) {
-			selectedCategory = tabItemsCategories[indexPath.item]
-			channelsGroups.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-			channelsGroups.reloadData()
-		 }
-	  }
-   }
+
 
 
    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -272,7 +263,7 @@ extension ChannelsViewController: UICollectionViewDataSource {
 }
 
 
-//MARK: - UICollectionViewDelegateFlowLayout {
+//MARK: - UICollectionViewDelegateFlowLayout
 extension ChannelsViewController: UICollectionViewDelegateFlowLayout {
 
    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -339,4 +330,23 @@ extension ChannelsViewController: CollectionViewCellDelegate {
 		 displayAlert(with: "Error", message: error.localizedDescription)
 	  }
    }
+}
+
+
+//MARK: Scrolling methods
+extension ChannelsViewController {
+
+	func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+		if scrollView == channelsList {
+
+			let cells = channelsList.visibleCells
+
+			if let cell = cells.first,
+			   let indexPath = channelsList.indexPath(for: cell) {
+				selectedCategory = tabItemsCategories[indexPath.item]
+				channelsGroups.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+				channelsGroups.reloadData()
+			}
+		}
+	}
 }
